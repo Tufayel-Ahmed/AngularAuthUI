@@ -1,0 +1,53 @@
+<div class="container">
+    <form [formGroup]="registrationForm">
+        <div class="field-class">
+                <label>Name</label>
+                <input class="input-field" matInput type="text" placeholder="Enter Your Full Name" name="fullname">
+        </div>
+       <div class="field-class">
+            <label>Your Ethnic Group</label><br>
+            <div *ngFor="let e of ethnicGroups; let i = index">
+                <input id="i" type="radio" formControlName="ethnicGroup" [value]="e"/>
+                <label>{{e.ethnicGroupName}}</label>
+            </div>
+       </div>
+        <div class="field-class">
+            <label>Your Religion</label><br>
+            <div *ngFor="let r of religions; let i = index">
+                <input id="i" type="radio" formControlName="religion" [value]="r"/>
+                <label>{{r.religionName}}</label>
+            </div>
+        </div>
+        <div class="field-class">
+            <label>Select Your City</label><br>
+            <mat-form-field appearance="fill">
+                <mat-select formControlName="city">
+                    <mat-option *ngFor="let c of cities" [value]="c">{{c.cityName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="field-class">
+            <label>Select Your Experience</label><br>
+            <mat-form-field appearance="fill">
+                <mat-select formControlName="experience">
+                    <mat-option *ngFor="let e of experiences" [value]="e.experienceId">{{e.experienceYear}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <!-- <div>
+            <mat-label>Enter Your Date of Birth</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>    
+        </div> -->
+        <div class="field-class">
+            <mat-slide-toggle>Are you employed</mat-slide-toggle>
+        </div>
+        <div class="field-class">
+            <label>Address</label>
+            <textarea class="input-field" matInput></textarea>
+        </div>
+    </form>
+    
+</div>
